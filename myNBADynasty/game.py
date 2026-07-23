@@ -365,7 +365,8 @@ def season(df,pg,sg,sf,pf,c):
             trade = int(input("A Team wants to trade a PG with you.\n 1. Accept Trade \n 2. Decline Trade"))
             if trade == 1:
                 print(f"Congrats on the new {trade_overall} overall PG")
-                pg = trade_overall 
+                pg = trade_overall
+                new_row['PG'] = pg
             else:
                 print(f"You declined the trade for a {trade_overall} overall PG")  
         elif trade_pos == 2:
@@ -373,6 +374,7 @@ def season(df,pg,sg,sf,pf,c):
             if trade == 1:
                 print(f"Congrats on the new {trade_overall} overall SG")
                 sg = trade_overall 
+                new_row['SG'] = sg
             else:
                 print(f"You declined the trade for a {trade_overall} overall SG")  
         
@@ -381,6 +383,7 @@ def season(df,pg,sg,sf,pf,c):
             if trade == 1:
                 print(f"Congrats on the new {trade_overall} overall SF")
                 sf = trade_overall 
+                new_row['SF'] = sf
             else:
                 print(f"You declined the trade for a {trade_overall} overall SF")  
 
@@ -388,7 +391,8 @@ def season(df,pg,sg,sf,pf,c):
             trade = int(input("A Team wants to trade a PF with you.\n 1. Accept Trade \n 2. Decline Trade"))
             if trade == 1:
                 print(f"Congrats on the new {trade_overall} overall PF")
-                pf = trade_overall 
+                pf = trade_overall
+                new_row['PF'] = pf 
             else:
                 print(f"You declined the trade for a {trade_overall} overall PF")  
 
@@ -397,10 +401,12 @@ def season(df,pg,sg,sf,pf,c):
             if trade == 1:
                 print(f"Congrats on the new {trade_overall} overall C")
                 c = trade_overall 
+                new_row['C'] = c
             else:
                 print(f"You declined the trade for a {trade_overall} overall C")  
     else:
         print("No Team wants to trade with you")
+    team_overall = new_row['PG'] + new_row['SG'] + new_row['PF'] + new_row['SF'] + new_row['C']
     
     time.sleep(3)
 
